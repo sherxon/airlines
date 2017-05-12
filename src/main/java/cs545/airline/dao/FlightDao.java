@@ -1,21 +1,17 @@
 package cs545.airline.dao;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceException;
-import javax.persistence.Query;
-import javax.persistence.TemporalType;
-
-import org.apache.log4j.Logger;
-
 import cs545.airline.model.Flight;
 import cs545.airline.nonmanaged.JpaUtil;
+import org.apache.log4j.Logger;
 
+import javax.inject.Named;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+@Named
 public class FlightDao {
-	private static Logger logger = Logger.getLogger(FlightDao.class);
+
+	//private static Logger logger = Logger.getLogger(FlightDao.class);
 	
 	// This is an anti-pattern. To fix this use JTA to manage transactions
 	
@@ -35,7 +31,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -62,7 +58,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+			//	logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -89,7 +85,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -116,7 +112,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -147,7 +143,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -179,7 +175,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -211,7 +207,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -243,7 +239,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -275,7 +271,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -309,7 +305,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -345,7 +341,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -380,7 +376,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -416,7 +412,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {
@@ -446,7 +442,7 @@ public class FlightDao {
 			
 		} catch (PersistenceException e) {
 			if (tx != null && tx.isActive()) {
-				logger.error("Rolling back", e);
+				//logger.error("Rolling back", e);
 				tx.rollback();
 			}
 		} finally {

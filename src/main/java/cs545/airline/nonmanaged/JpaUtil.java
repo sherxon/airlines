@@ -8,7 +8,7 @@ public class JpaUtil {
 	private EntityManagerFactory entityManagerFactory = null;
 	private static final JpaUtil jpaUtil = new JpaUtil();
 
-	private JpaUtil() {
+	public JpaUtil() {
 		try {
 			entityManagerFactory = Persistence.createEntityManagerFactory("cs545");
 		} catch (Throwable ex) {

@@ -1,19 +1,22 @@
 package cs545.airline.service;
 
-import java.util.Date;
-import java.util.List;
-
 import cs545.airline.dao.FlightDao;
 import cs545.airline.model.Airline;
 import cs545.airline.model.Airplane;
 import cs545.airline.model.Airport;
 import cs545.airline.model.Flight;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.Date;
+import java.util.List;
+
+@Named
 public class FlightService {
 	private FlightDao flightDao;
 	
 	// These services should be evaluated to reconsider which methods should be public 
-	
+	@Inject
 	public FlightService(FlightDao flightDao){
 		this.flightDao = flightDao;
 	}
