@@ -1,18 +1,20 @@
 package cs545.airline;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
-import cs545.airline.dao.FlightDao;
 import cs545.airline.model.Airline;
 import cs545.airline.model.Airplane;
 import cs545.airline.model.Airport;
 import cs545.airline.model.Flight;
 import cs545.airline.nonmanaged.JpaUtil;
 import cs545.airline.service.FlightService;
+import org.apache.log4j.Logger;
+
+import javax.inject.Inject;
+import java.util.List;
 
 public class App {
+
+	@Inject
+	JpaUtil JpaUtil;
 	private static Logger logger = Logger.getLogger(App.class);
 	private FlightService flightService;
 
@@ -22,7 +24,7 @@ public class App {
 		
 		// This is needed because not its not closing Hibernate's connection 
 		// - use beans instead of instantiating the JPA directly
-		JpaUtil.destroyJpaUtil();
+		//JpaUtil.destroyJpaUtil();
 		
 	}
 
@@ -30,7 +32,7 @@ public class App {
 	public App() {
 		// Services should be injected -DI
 		// all of these objects are singleton and application scoped
-		flightService = new FlightService(new FlightDao());
+		//flightService = new FlightService(new FlightDao());
 	}
 
 	public void run() {

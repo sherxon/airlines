@@ -2,6 +2,7 @@ package cs545.airline.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
@@ -14,7 +15,8 @@ import cs545.airline.nonmanaged.JpaUtil;
 
 public class AirlineDao {
 	private static Logger logger = Logger.getLogger(AirlineDao.class);
-	
+	@Inject
+	JpaUtil JpaUtil;
 	// This is an anti-pattern. To fix this use JTA to manage transactions
 	
 	public void create(Airline airline) {

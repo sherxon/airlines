@@ -4,12 +4,15 @@ import cs545.airline.model.Flight;
 import cs545.airline.nonmanaged.JpaUtil;
 import org.apache.log4j.Logger;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 @Named
 public class FlightDao {
+
+	@Inject JpaUtil JpaUtil;
 
 	//private static Logger logger = Logger.getLogger(FlightDao.class);
 	

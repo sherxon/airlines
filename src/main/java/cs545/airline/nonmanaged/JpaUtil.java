@@ -1,16 +1,18 @@
 package cs545.airline.nonmanaged;
 
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+@Named
 public class JpaUtil {
 	private EntityManagerFactory entityManagerFactory = null;
-	private static final JpaUtil jpaUtil = new JpaUtil();
+	//private static final JpaUtil jpaUtil = new JpaUtil();
 
 	public JpaUtil() {
 		try {
-			entityManagerFactory = Persistence.createEntityManagerFactory("cs545");
+			entityManagerFactory = Persistence.createEntityManagerFactory("NewPersistenceUnit");
 		} catch (Throwable ex) {
 			if ((entityManagerFactory!=null) && (entityManagerFactory.isOpen())) {
 				entityManagerFactory.close();
@@ -28,13 +30,13 @@ public class JpaUtil {
 		super.finalize();
 	}
 
-	static public EntityManager getEntityManager() {
-		return jpaUtil.entityManagerFactory.createEntityManager();
+	 public EntityManager getEntityManager() {
+		return entityManagerFactory.createEntityManager();
 	}
 	
-	static public void destroyJpaUtil() {
-		if ((jpaUtil.entityManagerFactory!=null) && (jpaUtil.entityManagerFactory.isOpen())) {
-			jpaUtil.entityManagerFactory.close();
+	 public void destroyJpaUtil() {
+		if ((entityManagerFactory!=null) && (entityManagerFactory.isOpen())) {
+			entityManagerFactory.close();
 		}
 	}
 }
